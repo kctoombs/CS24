@@ -1,0 +1,136 @@
+# sample test data for gridtester.cpp
+
+# Note: use as given for final testing only. Early tests
+# should be less extensive - test one unit at a time.
+
+new
+ 0 0 4   0 0 0   0 6 7 
+ 3 0 0   4 7 0   0 0 5 
+ 1 5 0   8 2 0   0 0 3 
+
+ 0 0 6   0 0 0   0 3 1 
+ 8 0 2   1 0 5   6 0 4 
+ 4 1 0   0 0 0   9 0 0 
+
+ 7 0 0   0 8 0   0 4 6 
+ 6 0 0   0 1 2   0 0 0 
+ 9 3 0   0 0 0   7 1 0 
+
+# some valid gets
+get 0 2
+get 8 7
+get 4 0
+get 4 5
+
+# some valid sets (not necessarily legal Sudoku)
+set 0 1 9
+set 4 4 7
+set 8 5 4
+set 8 5 0
+
+# print current grid, and test some occurrences
+print
+row? 3 1
+row? 8 4
+column? 2 6
+column? 6 2
+box? 7 1 6
+box? 6 1 7
+box? 8 1 9
+box? 7 2 4
+box? 4 4 5
+box? 3 5 1
+box? 3 3 9
+
+# test some candidate numbers
+cand? 0 0 5
+cand? 0 0 2
+cand? 4 4 6
+cand? 4 4 7
+cand? 4 4 3
+
+# verify not a solved grid
+solved?
+
+# change to a nearly solved grid, and verify not solved yet
+new
+ 0 8 4    5 9 3    1 6 7
+ 3 6 9    4 7 1    8 2 5
+ 1 5 7    8 2 6    4 9 3
+
+ 5 7 6    9 4 8    2 3 1
+ 8 9 2    1 0 5    6 7 4
+ 4 1 3    2 6 7    9 5 8
+
+ 7 2 1    3 8 9    5 4 6
+ 6 4 5    7 1 2    3 8 9
+ 9 3 8    6 5 4    7 1 0
+solved?
+
+# fix solution in 3 steps, and check if solved after each step
+set 0 0 2
+solved?
+set 4 4 3
+solved?
+set 8 8 2
+solved?
+
+# ruin solution, and verify not solved
+set 4 4 9
+solved?
+
+# verify bad cases (some throw exceptions; some just false)
+set 2 2 2
+set 8 4 9
+set -5 2 9
+set 0 -2 3
+set 0 0 12
+get 0 10
+get -5 8
+row? -3 9
+row? 10 0
+row? 0 -2
+column? -1 0
+column? 15 0
+column? 2 12
+box? -1 2 4
+box? 10 2 4
+box? 0 -2 4
+box? 0 15 4
+box? 0 0 -1
+cand? -1 0 2
+cand? 15 0 2
+cand? 0 -1 2
+cand? 0 12 2
+cand? 0 0 -4
+cand? 0 0 17
+
+# verify constructor exceptions too
+new
+ 2 8 4    5 9 3    1 6 7
+ 3 6 9    4 7 1    8 2 5
+ 1 5 7    8 2 6    4 9 3
+
+ 5 7 6    9 4 8    2 3 1
+ 8 9 2    1 -3 5    6 7 4
+ 4 1 3    2 6 7    9 5 8
+
+ 7 2 1    3 8 9    5 4 6
+ 6 4 5    7 1 2    3 8 9
+ 9 3 8    6 5 4    7 1 2
+
+new
+ 2 8 4    5 9 3    1 6 7
+ 3 6 95    4 7 1    8 2 5
+ 1 5 7    8 2 6    4 9 3
+
+ 5 7 6    9 4 8    2 3 1
+ 8 9 2    1 3 5    6 7 4
+ 4 1 3    2 6 7    9 5 8
+
+ 7 2 1    3 8 9    5 4 6
+ 6 4 5    7 1 2    3 8 9
+ 9 3 8    6 5 4    7 1 2
+
+
+# done

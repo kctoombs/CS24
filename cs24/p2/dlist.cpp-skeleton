@@ -1,0 +1,101 @@
+// dlist.cpp - implements class DList
+// YOUR NAME(S) AND THE DATE
+
+#include <iostream>
+#include "dlist.h"
+
+void DList::clear() {
+    // IMPLEMENT
+}
+
+int DList::getSize() const {
+    return 0; // REPLACE
+}
+
+bool DList::isEmpty() const {
+    return false; // REPLACE
+}
+
+string DList::get(int index) const {
+    return string(""); // REPLACE
+}
+
+string DList::getFirst() const {
+    return string(""); // REPLACE
+}
+
+string DList::getLast() const {
+    return string(""); // REPLACE
+}
+
+DList DList::head(int length) const {
+    DList sublist;
+    // FILL IN MISSING PART
+    return sublist;
+}
+
+DList DList::tail(int length) const {
+    DList sublist;
+    // FILL IN MISSING PART
+    return sublist;
+}
+
+void DList::insert(int index,  string obj) {
+    // IMPLEMENT
+}
+
+void DList::addFirst(string obj) {
+    // IMPLEMENT
+}
+
+void DList::addLast(string obj){
+    // IMPLEMENT
+}
+
+string DList::remove (int index) {
+    return string(""); // REPLACE
+}
+
+string DList::removeFirst () {
+    return string(""); // REPLACE
+}
+
+string DList::removeLast() {
+    return string(""); // REPLACE
+}
+
+void DList::removeAllEqual(string obj) {
+    // IMPLEMENT
+}
+
+void DList::reverse() {
+    // IMPLEMENT
+}
+
+bool DList::contains(string obj) const {
+    return false; // REPLACE
+}
+
+
+// DO NOT CHANGE ANYTHING BELOW THIS COMMENT.
+// print and rprint are already done.
+
+void DList::print() const {
+    DLNode *n = first;
+    while (n) {
+        std::cout << n->info;
+        if (n->next)
+            std::cout << ", ";
+        n = n->next;
+    }
+}
+
+void DList::rprint() const {
+    DLNode *n = last;
+    while (n) {
+        std::cout << n->info;
+        if (n->prev)
+            std::cout << ", ";
+        n = n->prev;
+    }
+}

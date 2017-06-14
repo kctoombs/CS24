@@ -1,0 +1,86 @@
+addLast apple
+addLast cat
+addLast bite
+print
+
+addFirst pow
+print
+tail 2
+reverse
+print
+removeFirst
+print
+insert 2 mouse
+print
+contains apple
+contains bite
+
+insert 9 wrong
+get -1
+
+clear
+print
+size
+contains apple
+head 4 
+clear
+
+first
+removeLast
+
+clear
+addFirst a
+addLast b
+addLast 1
+addLast 1
+addLast 2
+addLast 2
+addLast c
+addLast d
+addLast e
+addLast f
+addLast 3
+addLast 4
+addLast 3
+addLast 4
+addLast 4
+addLast 4
+addLast g
+addLast a
+addLast b
+addLast c
+addLast d
+addLast e
+addLast f
+addLast g
+addLast a
+
+print
+reverse
+contains 4
+contains 3
+contains 2
+contains 1
+reverse
+print
+contains a
+contains b
+contains c
+contains d
+contains e
+contains f
+contains g
+contains h
+removeEqual 1
+print
+reverse
+print
+removeEqual 2
+print
+reverse
+reverse
+print
+removeEqual 3
+print
+removeEqual 4
+print

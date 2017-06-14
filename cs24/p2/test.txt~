@@ -1,0 +1,29 @@
+addLast apple
+addLast cat
+addLast bite
+print
+
+addFirst pow
+print
+tail 2
+reverse
+print
+removeFirst
+print
+insert 2 mouse
+print
+contains apple
+contains bite
+
+insert 9 wrong
+get -1
+
+clear
+print
+size
+contains apple
+head 4 
+clear
+
+first
+removeLast

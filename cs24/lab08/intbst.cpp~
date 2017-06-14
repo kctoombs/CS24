@@ -1,0 +1,110 @@
+// intbst.cpp
+// Implements class IntBST
+// YOUR NAME(S) AND TODAY'S DATE
+
+#include "intbst.h"
+
+#include <iostream>
+using std::cout;
+
+// constructor sets up empty tree
+IntBST::IntBST() : root(0) { }
+
+// destructor deletes all nodes
+IntBST::~IntBST() {
+    clear(root);
+}
+
+// recursive helper for destructor
+void IntBST::clear(Node *n) {
+    if (n) {
+        clear(n->left);
+        clear(n->right);
+        delete n;
+    }
+}
+
+// insert value in tree; return false if duplicate
+bool IntBST::insert(int value) {
+    // handle special case of empty tree first
+    if (!root) {
+        root = new Node(value);
+        return true;
+    }
+    // otherwise use recursive helper
+    return insert(value, root);
+}
+
+// recursive helper for insert (assumes n is never 0)
+bool IntBST::insert(int value, Node *n) {
+    if (value == n->info)
+        return false;
+    if (value < n->info) {
+        if (n->left)
+            return insert(value, n->left);
+        else {
+            n->left = new Node(value);
+            return true;
+        }
+    }
+    else {
+        if (n->right)
+            return insert(value, n->right);
+        else {
+            n->right = new Node(value);
+            return true;
+        }
+    }
+}
+
+// print values in the specified order separated by spaces
+void IntBST::print(Order o) const {
+    print(o, root);
+}
+
+// recursive helper for print
+void IntBST::print(Order o, Node *n) const {
+
+    // notice base case is done: does nothing for empty tree
+    if (!n)
+        return;
+
+    switch(o) {
+
+        case PRE:
+            cout << n->info << " ";
+            print(PRE, n->left);
+            print(PRE, n->right);
+        break;
+
+        case IN:
+            print(PRE, n->right);
+	    cout << n->info << " ";
+            print(PRE, n->left);
+            
+        break;
+
+        case POST:
+	  print(POST, n->left);
+	  print(POST, n->right);
+	  cout << n->info << " ";
+        break;
+    }
+}
+
+// return sum of values in tree
+int IntBST::sum() const {
+    return sum(root);
+}
+
+// recursive helper for sum
+int IntBST::sum(Node *n) const {
+    return 0; // REPLACE THIS NON-SOLUTION
+}
+
+// returns true if value is in the tree; false if not
+bool IntBST::contains(int value) const {
+    return false; // REPLACE THIS NON-SOLUTION
+}
+
+// implement optional challenge methods below
